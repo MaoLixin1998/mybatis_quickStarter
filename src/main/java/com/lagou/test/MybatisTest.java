@@ -1,6 +1,7 @@
 package com.lagou.test;
 
 
+import com.dao.IUserDaoImpl;
 import com.lagou.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -82,6 +83,13 @@ public class MybatisTest {
         sqlSession.delete("user.deleteUser",5);
         sqlSession.commit();
         sqlSession.close();
+
+    }
+    @Test
+    public void test5() throws IOException {
+        IUserDaoImpl iUserDao = new IUserDaoImpl();
+        List<User> all = iUserDao.findAll();
+        System.out.println(all);
 
     }
 }
