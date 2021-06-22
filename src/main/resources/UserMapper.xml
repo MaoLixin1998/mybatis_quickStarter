@@ -4,15 +4,15 @@
     <!-- namespace:a名称空间，与id组成sql唯一标识
          resultType: 表明返回类型-->
 
-    <select id="findAll" resultType="com.lagou.pojo.User">
+    <select id="findAll" resultType="user">
          select * from User
     </select>
 
-    <insert id="saveUser" parameterType="com.lagou.pojo.User">
+    <insert id="saveUser" parameterType="user">
         insert into user values (#{id},#{username})
     </insert>
 
-    <update id="updateUser" parameterType="com.lagou.pojo.User">
+    <update id="updateUser" parameterType="user">
         update user set username = #{username} where id = #{id}
     </update>
 

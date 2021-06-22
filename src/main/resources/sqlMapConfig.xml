@@ -3,7 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+    <!--  加载properties  -->
     <properties resource="jdbc.properties"></properties>
+    <!--  给实体类起别名  -->
+    <typeAliases>
+        <typeAlias type="com.lagou.pojo.User" alias="user"></typeAlias>
+    </typeAliases>
 
     <!--    environments 运行环境-->
     <environments default="development">
