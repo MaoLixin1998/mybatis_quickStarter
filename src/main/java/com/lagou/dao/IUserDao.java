@@ -16,4 +16,7 @@ public interface IUserDao {
 
     public List<User> findAll() throws IOException;
     public List<User> findByCondition(User user) throws IOException;
+
+
+    public List<User> findByIds(int[] ids) throws IOException;
 }
