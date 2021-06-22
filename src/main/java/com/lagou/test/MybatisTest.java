@@ -1,7 +1,7 @@
 package com.lagou.test;
 
 
-import com.dao.IUserDaoImpl;
+import com.lagou.dao.IUserDao;
 import com.lagou.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -87,9 +87,20 @@ public class MybatisTest {
     }
     @Test
     public void test5() throws IOException {
-        IUserDaoImpl iUserDao = new IUserDaoImpl();
-        List<User> all = iUserDao.findAll();
-        System.out.println(all);
+//        IUserDao iUserDao = new IUserDaoImpl();
+//        List<User> all = iUserDao.findAll();
+//        System.out.println(all);
 
+    }
+
+    @Test
+    public void test6() throws IOException {
+
+        InputStream resourceAsStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        IUserDao mapper = sqlSession.getMapper(IUserDao.class);
+        List<User> all = mapper.findAll();
+        System.out.println(all);
     }
 }
