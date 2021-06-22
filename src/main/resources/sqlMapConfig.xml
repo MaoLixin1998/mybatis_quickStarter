@@ -7,7 +7,10 @@
     <properties resource="jdbc.properties"></properties>
     <!--  给实体类起别名  -->
     <typeAliases>
-        <typeAlias type="com.lagou.pojo.User" alias="user"></typeAlias>
+<!--        <typeAlias type="com.lagou.pojo.User" alias="user"></typeAlias>-->
+
+        <!--    给包下所有类的类起别名，ps:不区分大小写UsER//uSeR    -->
+        <package name="com.lagou.pojo"/>
     </typeAliases>
 
     <!--    environments 运行环境-->
