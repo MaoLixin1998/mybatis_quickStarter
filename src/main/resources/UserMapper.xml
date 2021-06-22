@@ -4,10 +4,14 @@
     <!-- namespace:a名称空间，与id组成sql唯一标识
          resultType: 表明返回类型-->
 
+    <sql id="selectUser">
+        select * from User
+    </sql>
+
     <select id="findAll" resultType="user">
 
-                 select * from User
-
+                 <include refid="selectUser">
+                 </include>
     </select>
 
     <insert id="saveUser" parameterType="user">
@@ -30,7 +34,8 @@
 
     <select id="findByCondition" resultType="User">
 
-                select * from user
+        <include refid="selectUser">
+        </include>
         <where>
             <if test="id != null">
                 and id=#{id}
@@ -44,7 +49,8 @@
     </select>
 
     <select id="findByIds" parameterType="list" resultType="com.lagou.pojo.User">
-        select * from user
+        <include refid="selectUser">
+        </include>
         <where>
             <foreach collection="array" open="id in (" close=")" item="id" separator=",">
                 #{id}
