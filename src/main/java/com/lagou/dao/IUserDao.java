@@ -1,6 +1,7 @@
 package com.lagou.dao;
 
 import com.lagou.pojo.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,4 +15,5 @@ import java.util.List;
 public interface IUserDao {
 
     public List<User> findAll() throws IOException;
+    public List<User> findByCondition(User user) throws IOException;
 }
